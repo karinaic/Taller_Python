@@ -88,3 +88,70 @@ print(elemento_1)
 
 #para ELIMINAR carpetas:
 os.rmdir('RUTA HASTA LO QUE QUEREMOS ELIMINAR')
+
+
+##################################################################################
+
+from pathlib import Path
+#de esta forma cualquier sistema operativo ya sea mac o windows va poder abrir este archivo.
+carpeta = Path('C:/Users/Karina/Desktop/python_udemy/seccion_6')
+
+archivo = carpeta / 'prueba.txt'
+
+mi_archivo = open(archivo)
+print(mi_archivo.read())
+
+######Pathlib ####################
+
+carpeta = Path('C:/Users/Karina/Desktop/python_udemy/seccion_6/prueba.txt')
+print(carpeta.read_text())  #con este metodo leemos directamente el archivo, no hace falta abrir ni cerrar el archivo.
+
+
+print(carpeta.name) #devuelve el nombre del archivo
+
+print(carpeta.suffix) #nos devuelve la terminacion del archivo
+
+print(carpeta.stem)
+
+if not carpeta.exists():
+    print('este archivo no existe')
+
+else:
+    print('existe')
+
+########################################
+from pathlib import Path
+#de esta forma cualquier sistema operativo ya sea mac o windows va poder abrir este archivo.
+carpeta = Path('C:/Users/Karina/Desktop/python_udemy/seccion_6')
+
+archivo = carpeta / 'prueba.txt'
+
+mi_archivo = open(archivo)
+print(mi_archivo.read())
+
+######Pathlib ####################
+
+carpeta = Path('C:/Users/Karina/Desktop/python_udemy/seccion_6/prueba.txt')
+print(carpeta.read_text())  #con este metodo leemos directamente el archivo, no hace falta abrir ni cerrar el archivo.
+
+
+print(carpeta.name) #devuelve el nombre del archivo
+
+print(carpeta.suffix) #nos devuelve la terminacion del archivo
+
+print(carpeta.stem)
+
+############Path######################
+#te puede ser útil para:
+'''* crear o mover archivos  
+   * enumerar archivos
+   * crear rutas apropiadas basadas en strings'''
+
+# Ejemplo:  se va crear una ruta de acceso con todos estos strings como jerarquias de carpetas
+mi_ruta = Path('europa', 'españa', 'barcelona', 'sagrada_familia.txt')
+print(mi_ruta)  #se trataría de una ruta relativa
+
+base = Path.home()
+print(base)  # esto nos devuelve una ruta absoluta al directorio del usuario actual
+guia = Path(base, 'Barcelona', 'Sagrada_familia.txt')
+print(guia) #esto nos devuelve una ruta absoluta
